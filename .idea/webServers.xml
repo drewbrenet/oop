@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="0652e82b-9360-454e-a93f-92f7cae9c71c" name="lamp" url="http://drewoispuu.ikt.khk.ee">
+        <fileTransfer host="drewoispuu.ikt.khk.ee" port="22" rootFolder="/home/drewoispuuiktkhk/public_html" accessType="SFTP">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" />
+          </advancedOptions>
+          <option name="port" value="22" />
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
