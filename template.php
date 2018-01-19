@@ -11,7 +11,10 @@ class template
     var $file = ''; // HTML malli faili nimi
     var $content = false; // HTML malli failist loetud sisu
     var $vars = array(); // HTML malli elementide nimetuste ja reaalväärtuste paarid
-
+    /**
+     * template constructor.
+     * @param string $file
+     */
     public function __construct($file)
     {
         $this->file = $file; // määrame kasutatava malli faili nimi
@@ -31,12 +34,13 @@ class template
             $this->readFile($file);
         }
 
+
         $file = VIEW_DIR.$this->file;
         if(file_exists($file) and is_file($file) and is_readable($file)){
             $this->readFile($file);
         }
 
-        $file = VIEW_DIR.$this->file.'.html'; /
+        $file = VIEW_DIR.$this->file.'.html';
         if(file_exists($file) and is_file($file) and is_readable($file)){
             $this->readFile($file);
         }
