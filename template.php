@@ -8,11 +8,46 @@
 
 class template
 {
-    var $file = '';
-    var $content = false;
-    var $vars = array();
+    // klassi muutujad
+    var $file = ''; // HTML malli faili nimi
+    var $content = false; // HTML malli failist loetud sisu
+    var $vars = array(); // HTML malli elementide nimetuste ja reaalväärtuste paarid
+    // HTML malli faili nime ja õiguste kontroll
+
+    function loadFile(){
+        if(!is_dir(VIEW_DIR)){
+            echo 'Ei ole leitud '.VIEW_DIR.' kataloogi<br />';
+            exit;
+        }
+
+        $file = $this->file;
+        if(file_exists($file) and is_file($file) and is_readable($file)){
+            $this->readFile($file);
+        }
+
+        $file = VIEW_DIR.$this->file;
+        if(file_exists($file) and is_file($file) and is_readable($file)){
+            $this->readFile($file);
+        }
+
+        $file = VIEW_DIR.$this->file.'.html'; /
+        if(file_exists($file) and is_file($file) and is_readable($file)){
+            $this->readFile($file);
+        }
+
+        $file = VIEW_DIR.str_replace('.', '/', $this->file).'.html';
+        if(file_exists($file) and is_file($file) and is_readable($file)){
+            $this->readFile($file);
+        }
+
+        if($this->content === false){
+            echo 'Ei suutnud lugeda '.$this->file.' sisu <br />';
+            exit;
+        }
+    }
 
     function readFile($file){
+
         $this->content = file_get_contents($file);
     }
 }
