@@ -9,3 +9,5 @@
 require_once 'conf.php';
 
 $testTabel = new template('views/test.html');
+
+echo

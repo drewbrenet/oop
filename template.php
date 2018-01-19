@@ -60,4 +60,7 @@ class template
 
         $this->content = file_get_contents($file);
     }
+    function set($name, $value) {
+        $this->vars[$name] = $value;
+    }
 }
