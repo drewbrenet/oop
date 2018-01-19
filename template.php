@@ -5,15 +5,21 @@
  * Date: 19.01.2018
  * Time: 10:21
  */
-
 class template
 {
     // klassi muutujad
     var $file = ''; // HTML malli faili nimi
     var $content = false; // HTML malli failist loetud sisu
     var $vars = array(); // HTML malli elementide nimetuste ja reaalväärtuste paarid
-    // HTML malli faili nime ja õiguste kontroll
 
+    public function __construct($file)
+    {
+        $this->file = $file; // määrame kasutatava malli faili nimi
+        $this->loadFile(); // laadime määratud nimega faili sisu
+    }
+    // HTML malli faili nime ja õiguste kontroll
+    // ning sisu lugemine siis, kui vajalikud
+    // tingimused on täidetud
     function loadFile(){
         if(!is_dir(VIEW_DIR)){
             echo 'Ei ole leitud '.VIEW_DIR.' kataloogi<br />';
