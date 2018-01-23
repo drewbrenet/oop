@@ -63,4 +63,12 @@ class template
     function set($name, $value) {
         $this->vars[$name] = $value;
     }
+    function parse(){
+        $str = $this->content;
+        foreach ($this->varas as $name=>$value) {
+            $str= str_replace('('.$name.')', $value, $str);
+
+        }
+        return $str;
+    }
 }

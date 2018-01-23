@@ -10,4 +10,10 @@ require_once 'conf.php';
 
 $testTabel = new template('views/test.html');
 
-echo
+$testTabel->set('esimene', '1');
+$testTabel->set('teine', '2');
+
+
+echo '<pre>';
+print_r($testTabel);
+echo '</pre>';
