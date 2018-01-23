@@ -18,8 +18,10 @@ $mainTmpl->set('title', 'Pealkiri');
 $mainTmpl->set('lang_bar', 'Keeleriba');
 $mainTmpl->set('menu', 'Lehe menüü');
 $mainTmpl->set('content', 'Lehe sisu');
-// lisame objekti testvaade
+
 echo '<pre>';
 print_r($mainTmpl);
 echo '</pre>';
 echo $mainTmpl->parse();
+
+require_once 'menu.php';
