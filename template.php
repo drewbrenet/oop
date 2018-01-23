@@ -7,7 +7,7 @@
  */
 class template
 {
-  
+
     var $file = '';
     var $content = false;
     var $vars = array();
