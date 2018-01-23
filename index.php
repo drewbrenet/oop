@@ -6,14 +6,20 @@
  * Time: 11:12
  */
 
+
 require_once 'conf.php';
 
-$testTabel = new template('views/test.html');
+$mainTmpl = new template('main');
 
-$testTabel->set('esimene', '1');
-$testTabel->set('teine', '2');
-
-
+$mainTmpl->set('lang', 'et');
+$mainTmpl->set('page_title', 'Lehe pealkiri');
+$mainTmpl->set('user', 'Kasutaja');
+$mainTmpl->set('title', 'Pealkiri');
+$mainTmpl->set('lang_bar', 'Keeleriba');
+$mainTmpl->set('menu', 'Lehe menüü');
+$mainTmpl->set('content', 'Lehe sisu');
+// lisame objekti testvaade
 echo '<pre>';
-print_r($testTabel);
+print_r($mainTmpl);
 echo '</pre>';
+echo $mainTmpl->parse();
