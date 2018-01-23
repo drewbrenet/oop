@@ -11,19 +11,15 @@ $menuTmpl = new template('menu.menu');
 $menuItemTmpl = new template('menu.menu_item');
 
 $menuItemTmpl->set('menu_item_name', 'esimene');
-echo '<pre>';
-print_r($menuItemTmpl);
-echo '</pre>';
-
-$menuItemTmpl->set('menu_item_name', 'teine');
-echo '<pre>';
-print_r($menuItemTmpl);
-echo '</pre>';
 
 $menuItem = $menuItemTmpl->parse();
-$menuTmpl->set('menu_item', $menuItem);
-echo '<pre>';
-print_r($menuTmpl);
-echo '</pre>';
+$menuTmpl->add('menu_items', $menuItem);
 
-$menu
+$menuItemTmpl->set('menu_item_name', 'teine');
+
+$menuItem = $menuItemTmpl->parse();
+$menuTmpl->add('menu_items', $menuItem);
+
+$menu = $menuTmpl->parse();
+
+$mainTmpl->set('menu', $menu);
