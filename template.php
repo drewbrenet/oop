@@ -7,10 +7,11 @@
  */
 class template
 {
-
+  
     var $file = '';
     var $content = false;
     var $vars = array();
+
 
     public function __construct($file)
     {
@@ -24,17 +25,17 @@ class template
             exit;
         }
 
-        $file = $this->file; // abiasendus
+        $file = $this->file;
         if(file_exists($file) and is_file($file) and is_readable($file)){
             $this->readFile($file);
         }
 
-        $file = VIEW_DIR.$this->file; // abiasendus
+        $file = VIEW_DIR.$this->file;
         if(file_exists($file) and is_file($file) and is_readable($file)){
             $this->readFile($file);
         }
 
-        $file = VIEW_DIR.$this->file.'.html'; // abiasendus
+        $file = VIEW_DIR.$this->file.'.html';
         if(file_exists($file) and is_file($file) and is_readable($file)){
             $this->readFile($file);
         }
@@ -59,8 +60,16 @@ class template
         $this->vars[$name] = $value;
     }
 
+    function add($name, $value){
+        if(!isset($this->vars[$name])){
+            $this->set($name, $value);
+        } else {
+            $this->vars[$name] = $this->vars[$name].$value;
+        }
+    }
+
     function parse(){
-        $str = $this->content; // malli sisu algväärtus
+        $str = $this->content;
         foreach ($this->vars as $name=>$value){
             $str = str_replace('{'.$name.'}', $value, $str);
         }
