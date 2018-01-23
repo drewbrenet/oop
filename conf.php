@@ -16,6 +16,6 @@ require_once LIB_DIR.'utils.php';
 
 require_once MODEL_DIR.'template.php';
 require_once MODEL_DIR.'http.php';
-require_once MODEL_DIR.'linObjects.php';
+require_once MODEL_DIR.'linkobjects.php';
 
-$http = new linObjects();
+$http = new linkobject();
