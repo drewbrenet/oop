@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="PublishConfigData" autoUpload="Always" serverName="lamp">
+  <component name="PublishConfigData" autoUpload="Always" serverName="ikt">
     <serverData>
-      <paths name="lamp">
+      <paths name="ikt">
         <serverdata>
           <mappings>
-            <mapping deploy="/oop" local="$PROJECT_DIR$" web="/oop" />
+            <mapping deploy="/oop_vs17_1" local="$PROJECT_DIR$" web="/oop_vs17_1" />
           </mappings>
         </serverdata>
       </paths>

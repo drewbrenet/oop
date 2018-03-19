@@ -2,29 +2,27 @@
 /**
  * Created by PhpStorm.
  * User: drew-brenet.oispuu
- * Date: 23.01.2018
- * Time: 12:35
+ * Date: 5.02.2018
+ * Time: 9:27
  */
 
 class http
 {
-    // klassi muutujad
-    var $vars = array();// HTTP andmete massiiv ($_GET, $_POST)
-    var $server = array(); // serveri andmete massiiv ($_SERVER)
-    /**
-     * http constructor.
-     */
+
+    var $vars = array();
+    var $server = array();
+
     public function __construct()
     {
         $this->init();
         $this->initConst();
     }
-    // loeme vajalikud väärtused sisse
+
     function init(){
         $this->vars = array_merge($_GET, $_POST);
         $this->server = $_SERVER;
     }
-    // loome vajalikud konstandid
+
     function initConst(){
         $constNames = array('HTTP_HOST', 'SCRIPT_NAME', 'REMOTE_ADDR');
         foreach ($constNames as $constName){
@@ -32,5 +30,26 @@ class http
                 define($constName, $this->server[$constName]);
             }
         }
+    }
+
+    function get($name){
+        if(isset($this->vars[$name])){
+            return $this->vars[$name];
+        } else {
+            return false;
+        }
+    }
+
+    function set($name, $value){
+        $this->vars[$name] = $value;
+    }
+
+    function redirect($url = false){
+        if($url == false){
+            $url = $this->getLink();
+        }
+        $url = str_replace('&amp;', '&', $url);
+        header('Location: '.$url);
+        exit;
     }
 }

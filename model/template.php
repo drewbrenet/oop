@@ -2,9 +2,10 @@
 /**
  * Created by PhpStorm.
  * User: drew-brenet.oispuu
- * Date: 19.01.2018
- * Time: 10:21
+ * Date: 5.02.2018
+ * Time: 9:28
  */
+
 class template
 {
 
@@ -12,14 +13,12 @@ class template
     var $content = false;
     var $vars = array();
 
-
     public function __construct($file)
     {
         $this->file = $file;
         $this->loadFile();
     }
 
-    function loadFile(){
         if(!is_dir(VIEW_DIR)){
             echo 'Ei ole leitud '.VIEW_DIR.' kataloogi<br />';
             exit;
@@ -40,7 +39,7 @@ class template
             $this->readFile($file);
         }
 
-        $file = VIEW_DIR.str_replace('.', '/', $this->file).'.html'; // abiasendus
+        $file = VIEW_DIR.str_replace('.', '/', $this->file).'.html';
         if(file_exists($file) and is_file($file) and is_readable($file)){
             $this->readFile($file);
         }
@@ -75,4 +74,4 @@ class template
         }
         return $str;
     }
-}
+}}
